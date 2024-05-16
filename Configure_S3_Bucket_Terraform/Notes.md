@@ -126,3 +126,80 @@ aws_s3_bucket.first_bucket: Creation complete after 2s [id=vus-first-bucket]
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 ```
+
+## Verify Bucket Creation
+
+1. Navigate to the Buckets menu of your AWS console. 
+
+2. Verify that your Bucket was configured:
+
+![Bucket Verification](/Learning-Terraform/Configure_S3_Bucket_Terraform/Images/bucket_verification.png)
+
+## Terraform Destroy
+
+Run the `% terraform destroy` command
+
+```
+aws_s3_bucket.first_bucket: Refreshing state... [id=vus-first-bucket]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.first_bucket will be destroyed
+  - resource "aws_s3_bucket" "first_bucket" {
+      - arn                         = "arn:aws:s3:::vus-first-bucket" -> null
+      - bucket                      = "vus-first-bucket" -> null
+      - bucket_domain_name          = "vus-first-bucket.s3.amazonaws.com" -> null
+      - bucket_regional_domain_name = "vus-first-bucket.s3.us-east-2.amazonaws.com" -> null
+      - force_destroy               = false -> null
+      - hosted_zone_id              = "Z2O1EMRO9K5GLX" -> null
+      - id                          = "vus-first-bucket" -> null
+      - object_lock_enabled         = false -> null
+      - region                      = "us-east-2" -> null
+      - request_payer               = "BucketOwner" -> null
+      - tags                        = {} -> null
+      - tags_all                    = {} -> null
+        # (3 unchanged attributes hidden)
+
+      - grant {
+          - id          = "32d5a6ff5e649dc794f25ddc46a8ef24c48bc2f7f85318544f20829b0721b334" -> null
+          - permissions = [
+              - "FULL_CONTROL",
+            ] -> null
+          - type        = "CanonicalUser" -> null
+            # (1 unchanged attribute hidden)
+        }
+
+      - server_side_encryption_configuration {
+          - rule {
+              - bucket_key_enabled = false -> null
+
+              - apply_server_side_encryption_by_default {
+                  - sse_algorithm     = "AES256" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+        }
+
+      - versioning {
+          - enabled    = false -> null
+          - mfa_delete = false -> null
+        }
+    }
+
+Plan: 0 to add, 0 to change, 1 to destroy.
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+aws_s3_bucket.first_bucket: Destroying... [id=vus-first-bucket]
+aws_s3_bucket.first_bucket: Destruction complete after 0s
+
+Destroy complete! Resources: 1 destroyed.
+```
