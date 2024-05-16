@@ -133,7 +133,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 2. Verify that your Bucket was configured:
 
-![Bucket Verification](/Learning-Terraform/Configure_S3_Bucket_Terraform/Images/bucket_verification.png)
+![Bucket Verification](https://github.com/mikeovu/Learn-Terraform/blob/1cadac93df685f9c340d9a79532a326b911271dc/Configure_S3_Bucket_Terraform/Images/bucket_verification.png)
 
 ## Terraform Destroy
 
